@@ -1,0 +1,5 @@
+package br.com.exemplo.abstractfactory;
+
+public class CDPlayer extends Som {
+
+}
