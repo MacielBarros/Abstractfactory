@@ -1,0 +1,34 @@
+package br.com.exemplo.abstractfactory;
+
+public class TesteFactory {
+	
+	private static Carro montarCarro (String tipo){
+		CarroFactory cf = null;
+		
+		switch (tipo){
+		
+		case "luxo":
+			cf = new CarroLuxoFactory();
+			break;
+		case "popular":
+			cf = new CarroPopularFactory();
+		
+		}
+		
+		Carro carro = new Carro();
+		carro.setRoda (cf.montarRoda()); //aqui é onde encontra a grande vantagem, sem utilizar o Abstract Factory teriamos que 
+		carro.setSom (cf.montarSom());
+		return carro;
+		
+	}
+	
+		@SuppressWarnings("unused")
+		public static void main (String[] args){
+		
+			Carro c1 = montarCarro("luxo");
+			Carro c12 = montarCarro("popular");
+			System.out.println("END");
+}
+	
+}
+
